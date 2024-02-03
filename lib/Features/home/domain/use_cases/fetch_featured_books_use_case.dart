@@ -6,13 +6,13 @@ import 'package:dartz/dartz.dart';
 import '../repos/base_home_repo.dart';
 
 class FetchFeaturedBooksUseCase extends BaseUseCase<List<BookEntity>, int> {
-  final BaseHomeRepo _baseBooklyRepo;
+  final BaseHomeRepo _baseHomeRepo;
 
-  FetchFeaturedBooksUseCase({required BaseHomeRepo baseBooklyRepo})
-      : _baseBooklyRepo = baseBooklyRepo;
+  FetchFeaturedBooksUseCase({required BaseHomeRepo baseHomeRepo})
+      : _baseHomeRepo = baseHomeRepo;
   @override
   Future<Either<Failure, List<BookEntity>>> call([int? param]) async {
     //manage permission here
-    return await _baseBooklyRepo.fetchFeaturedBooks();
+    return await _baseHomeRepo.fetchFeaturedBooks();
   }
 }
