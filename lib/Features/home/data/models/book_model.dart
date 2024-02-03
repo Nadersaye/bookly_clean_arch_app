@@ -12,7 +12,8 @@ class BookModel extends BookEntity {
       : super(
             title: volumeInfo?.title ?? 'un known title',
             author: volumeInfo?.authors?.first ?? 'un known author',
-            image: volumeInfo?.imageLinks?.thumbnail ?? '',
+            image: volumeInfo?.imageLinks?.thumbnail ??
+                'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png',
             bookId: id,
             price: 0.0,
             rating: 0,
