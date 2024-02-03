@@ -25,7 +25,7 @@ class HomeRemoteDataSource implements BaseHomeRemoteDataSource {
   @override
   Future<List<BookEntity>> fetchNewestBooks() async {
     final response = await apiService
-        .get("volumes?Filtering=free-ebooks&Sorting=newest &q=programming");
+        .get("volumes?Filtering=free-ebooks&Sorting=newest&q=programming");
     List<BookEntity> books = getBooksList(response);
     saveBooksData(books, kNewestBox);
     return books;
