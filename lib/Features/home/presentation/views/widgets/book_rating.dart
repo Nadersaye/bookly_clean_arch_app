@@ -24,7 +24,7 @@ class BookRating extends StatelessWidget {
           width: 6.3,
         ),
         const Text(
-          '4.8',
+          '0',
           style: Styles.textStyle16,
         ),
         const SizedBox(
@@ -33,7 +33,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: .5,
           child: Text(
-            '(245)',
+            '0',
             style: Styles.textStyle14.copyWith(
               fontWeight: FontWeight.w600,
             ),
