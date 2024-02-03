@@ -24,7 +24,7 @@ class HomeRepo implements BaseHomeRepo {
       return Right(books);
     } catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure(errorMessage: e.message!));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return Left(ServerFailure(errorMessage: e.toString()));
       }
@@ -43,7 +43,7 @@ class HomeRepo implements BaseHomeRepo {
       return Right(books);
     } catch (e) {
       if (e is DioException) {
-        return Left(ServerFailure(errorMessage: e.message!));
+        return Left(ServerFailure.fromDioException(e));
       } else {
         return Left(ServerFailure(errorMessage: e.toString()));
       }
