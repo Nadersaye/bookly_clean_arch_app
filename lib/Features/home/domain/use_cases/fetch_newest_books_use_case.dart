@@ -7,13 +7,13 @@ import 'package:dartz/dartz.dart';
 import '../repos/base_home_repo.dart';
 
 class FetchNewestBooksUseCase extends BaseUseCase<List<BookEntity>, NoParam> {
-  final BaseHomeRepo _baseBooklyRepo;
+  final BaseHomeRepo _baseHomeRepo;
 
-  FetchNewestBooksUseCase({required BaseHomeRepo baseBooklyRepo})
-      : _baseBooklyRepo = baseBooklyRepo;
+  FetchNewestBooksUseCase({required BaseHomeRepo baseHomeRepo})
+      : _baseHomeRepo = baseHomeRepo;
   @override
   Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) async {
     //manage permission here
-    return await _baseBooklyRepo.fetchNewestBooks();
+    return await _baseHomeRepo.fetchNewestBooks();
   }
 }
