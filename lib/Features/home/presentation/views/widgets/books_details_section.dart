@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../../core/utils/styles.dart';
+import '../../../domain/entities/book_entity.dart';
 import 'book_rating.dart';
 import 'books_action.dart';
 import 'custom_book_item.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key});
-
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -18,7 +17,15 @@ class BookDetailsSection extends StatelessWidget {
           padding: EdgeInsets.symmetric(
             horizontal: width * .2,
           ),
-          child: const CustomBookImage(),
+          child: const CustomBookImage(
+              book: BookEntity(
+                  title: '',
+                  author: '',
+                  image: '',
+                  bookId: '',
+                  price: 0,
+                  rating: 0,
+                  count: 0)),
         ),
         const SizedBox(
           height: 43,
