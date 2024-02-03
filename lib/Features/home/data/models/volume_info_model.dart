@@ -11,7 +11,9 @@ class VolumeInfoModel {
   factory VolumeInfoModel.fromJson(Map<String, dynamic> json) {
     return VolumeInfoModel(
         title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
+        authors: (json['authors'] as List<dynamic>)
+            .map((author) => author as String)
+            .toList(),
         imageLinks: json['imageLinks'] == null
             ? null
             : ImageLinksModel.fromJson(
