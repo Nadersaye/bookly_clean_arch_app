@@ -5,8 +5,8 @@ import 'package:bookly_clean_arch_app/core/utils/api_service.dart';
 import 'package:bookly_clean_arch_app/core/utils/functions/save_books_data.dart';
 
 abstract class BaseHomeRemoteDataSource {
-  Future<List<BookEntity>> fetchFeaturedBooks();
-  Future<List<BookEntity>> fetchNewestBooks();
+  Future<List<BookEntity>> fetchFeaturedBooks(int pageNumber);
+  Future<List<BookEntity>> fetchNewestBooks(int pageNumber);
 }
 
 class HomeRemoteDataSource implements BaseHomeRemoteDataSource {
@@ -14,18 +14,18 @@ class HomeRemoteDataSource implements BaseHomeRemoteDataSource {
 
   HomeRemoteDataSource({required this.apiService});
   @override
-  Future<List<BookEntity>> fetchFeaturedBooks() async {
-    final response =
-        await apiService.get("volumes?Filtering=free-ebooks&q=programming");
+  Future<List<BookEntity>> fetchFeaturedBooks(int pageNumber) async {
+    final response = await apiService.get(
+        "volumes?Filtering=free-ebooks&q=programming&startIndex=${pageNumber * 10}");
     List<BookEntity> books = getFeaturedBooks(response);
     saveBooksData(books, kFeaturedBox);
     return books;
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async {
-    final response = await apiService
-        .get("volumes?Filtering=free-ebooks&Sorting=newest&q=programming");
+  Future<List<BookEntity>> fetchNewestBooks(int pageNumber) async {
+    final response = await apiService.get(
+        "volumes?Filtering=free-ebooks&Sorting=newest&q=programming&startIndex=${pageNumber * 10}");
     List<BookEntity> books = getBooksList(response);
     saveBooksData(books, kNewestBox);
     return books;
