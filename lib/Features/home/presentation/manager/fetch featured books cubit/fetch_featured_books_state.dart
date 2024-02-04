@@ -11,6 +11,9 @@ final class FetchFeaturedBooksInitial extends FetchFeaturedBooksState {}
 
 final class FetchFeaturedBooksLoading extends FetchFeaturedBooksState {}
 
+final class FetchFeaturedBooksPaginationLoading
+    extends FetchFeaturedBooksState {}
+
 final class FetchFeaturedBooksLoaded extends FetchFeaturedBooksState {
   final List<BookEntity> books;
 
@@ -24,6 +27,15 @@ final class FetchFeaturedBooksError extends FetchFeaturedBooksState {
   final String errorMessage;
 
   const FetchFeaturedBooksError({required this.errorMessage});
+
+  @override
+  List<Object> get props => [errorMessage];
+}
+
+final class FetchFeaturedBooksPaginationError extends FetchFeaturedBooksState {
+  final String errorMessage;
+
+  const FetchFeaturedBooksPaginationError({required this.errorMessage});
 
   @override
   List<Object> get props => [errorMessage];
