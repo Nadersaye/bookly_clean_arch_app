@@ -1,5 +1,5 @@
-import 'package:bookly_clean_arch_app/Features/home/presentation/views/widgets/best_seller_list_view_bloc_builder.dart';
-import 'package:bookly_clean_arch_app/Features/home/presentation/views/widgets/featured_list_view_bloc_builder.dart';
+import 'package:bookly_clean_arch_app/Features/home/presentation/views/widgets/best_seller_list_view_bloc_consumer.dart';
+import 'package:bookly_clean_arch_app/Features/home/presentation/views/widgets/featured_list_view_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../core/utils/styles.dart';
 import 'custom_app_bar.dart';
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
                     horizontal: 30,
                   ),
                   child: CustomAppBar()),
-              FeaturedListViewBlocBuilder(),
+              FeaturedListViewBloConsumer(),
               SizedBox(
                 height: 50,
               ),
@@ -40,7 +40,7 @@ class HomeViewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30),
-              child: BestSellerListViewBlocBuilder()),
+              child: BestSellerListViewBlocConsumer()),
         ),
       ],
     );
