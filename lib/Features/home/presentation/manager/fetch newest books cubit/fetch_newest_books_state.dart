@@ -11,6 +11,8 @@ final class FetchNewestBooksInitial extends FetchNewestBooksState {}
 
 final class FetchNewestBooksLoading extends FetchNewestBooksState {}
 
+final class FetchNewestBooksPaginationLoading extends FetchNewestBooksState {}
+
 final class FetchNewestBooksLoaded extends FetchNewestBooksState {
   final List<BookEntity> books;
 
@@ -24,6 +26,15 @@ final class FetchNewestBooksError extends FetchNewestBooksState {
   final String errorMessage;
 
   const FetchNewestBooksError({required this.errorMessage});
+
+  @override
+  List<Object> get props => [errorMessage];
+}
+
+final class FetchNewestBooksPaginationError extends FetchNewestBooksState {
+  final String errorMessage;
+
+  const FetchNewestBooksPaginationError({required this.errorMessage});
 
   @override
   List<Object> get props => [errorMessage];
