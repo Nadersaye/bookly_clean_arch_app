@@ -13,6 +13,6 @@ class FetchFeaturedBooksUseCase extends BaseUseCase<List<BookEntity>, int> {
   @override
   Future<Either<Failure, List<BookEntity>>> call([int? param]) async {
     //manage permission here
-    return await _baseHomeRepo.fetchFeaturedBooks();
+    return await _baseHomeRepo.fetchFeaturedBooks(param!);
   }
 }
